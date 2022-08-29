@@ -20,10 +20,14 @@ sudo systemctl start nginx
 # jenkins installation
 sudo apt install openjdk-11-jre
 sudo java -version
-sudo apt install jenkins
+sudo wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb https://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt-get update
 sudo systemctl daemon-reload
 sudo systemctl enable jenkins
-sudo systemctl start jenkins
+sudo systemctl start jenkins 
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
 
 # Clear Cache
 echo 1 > /proc/sys/vm/drop_caches

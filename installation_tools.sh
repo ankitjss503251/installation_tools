@@ -109,6 +109,29 @@ sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
 
 
+# Reactjs installation
+sudo apt install npm
+npm --version
+sudo npm -g install create-react-app
+create-react-app --version
+create-react-app "application_name"               #Note: please update application name
+cd "application_name"                             #Note: please update application name
+npm start
+
+
+
+# MongoDB installation
+sudo apt install -y software-properties-common gnupg apt-transport-https ca-certificates
+sudo apt install -y mongodb
+wget -qO - https://www.mongodb.org/static/pgp/server-5.0.asc | sudo apt-key add -
+echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/5.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-5.0.list
+sudo apt update
+sudo apt install -y mongodb-org
+mongod --version
+sudo systemctl enable mongod
+sudo systemctl start mongod
+
+
 # clone your repo and run it for Frontend and Backend
 ' for Frontend -'
 sudo cd /var/www/html/

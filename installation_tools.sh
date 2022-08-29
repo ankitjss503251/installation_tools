@@ -33,12 +33,13 @@ echo 3 > /proc/sys/vm/drop_caches
 # nvm & node & pm2 installation
 sudo apt update 
 sudo apt install curl
-sudo curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash 
-sudo source ~/.bashrc
-sudo nvm ls-remote
-sudo nvm install 14.17.0
-sudo npm install pm2 -g
-sudo pm2 list
+sudo curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+echo "export NVM_DIR="$HOME/.nvm" [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" " >>/home/ubuntu/.bashrc
+source ~/.bashrc
+nvm ls-remote
+nvm install 14.17.0
+npm install pm2 -g
+pm2 list
 
 # yarn installtion
 sudo apt update
@@ -96,6 +97,24 @@ sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
 sudo apt-get install kubeadm kubelet kubectl
 sudo apt-mark hold kubeadm kubelet kubectl
 sudo kubeadm version
+
+
+# clone your repo and run it for Frontend and Backend
+' for Frontend -'
+sudo cd /var/www/html/
+sudo git clone repo_url    ' Note: please paste the repo_url'
+sudo cd /dir_name          ' Note: please paste the dir_name'
+sudo yarn run              ' Note: before build please configure the nginx '
+sudo yarn run build
+
+'for Backend -'
+sudo cd /var/www/html/
+sudo git clone repo_url  ' Note: please paste the repo_url'
+sudo cd /dir_name        ' Note: please paste the dir_name'
+sudo cd ..
+sudo cd /var/www/html/frontend_dir/admin  ' Note: please paste the dir_name'
+sudo yarn run build      ' Note: before build please configure the nginx'
+
 
 
 

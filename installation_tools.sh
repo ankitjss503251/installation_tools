@@ -119,8 +119,8 @@ sudo yarn run build
 
 'for Backend -'
 sudo cd /var/www/html/
-sudo git clone repo_url  ' Note: please paste the repo_url'
-sudo cd /dir_name        ' Note: please paste the dir_name'
+sudo git clone 'repo_url'  ' Note: please paste the repo_url'
+sudo cd /'dir_name'        ' Note: please paste the dir_name'
 sudo cd ..
 sudo cd /var/www/html/frontend_dir/admin  ' Note: please paste the dir_name'
 sudo yarn run build      ' Note: before build please configure the nginx'
